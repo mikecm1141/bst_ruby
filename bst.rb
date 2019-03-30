@@ -34,4 +34,25 @@ class Bst
       search(key, node.right)
     end
   end
+
+  def children(key, node = @root)
+    nodes = []
+    if key == node.key
+      { left: node.left, right: node.right }
+    else
+      children(key, search(key))
+    end
+  end
+
+  def parent_node(key, node = @root)
+    if @root.key == key
+      return nil
+    elsif node.left.key == key || node.right.key == key
+      node
+    elsif key < node.key
+      parent_node(key, node.left)
+    elsif key > node.key
+      parent_node(key, node.right)
+    end
+  end
 end
