@@ -55,4 +55,12 @@ class Bst
       parent_node(key, node.right)
     end
   end
+
+  def sibling(key, node = @root)
+    if @root.key == key
+      return nil
+    else
+      parent_node(key).sibling(key)
+    end
+  end
 end

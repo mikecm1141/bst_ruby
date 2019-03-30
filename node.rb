@@ -7,4 +7,8 @@ class Node
     @left = nil
     @right = nil
   end
+
+  def sibling(key)
+    key == left.key ? right : left
+  end
 end
