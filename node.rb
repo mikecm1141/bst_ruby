@@ -1,6 +1,5 @@
 class Node
-  attr_reader :key
-  attr_accessor :left, :right
+  attr_accessor :key, :left, :right
 
   def initialize(key)
     @key = key
@@ -10,5 +9,9 @@ class Node
 
   def sibling(key)
     key == left.key ? right : left
+  end
+
+  def has_children?
+    left || right ? true : false
   end
 end
